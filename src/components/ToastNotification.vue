@@ -18,19 +18,18 @@ export default {
     handle_delete(message) {
       this.$refs[`message`].insertAdjacentHTML(`beforeend`, `${message}`);
 
-      this.dismiss_message = true;
+      this.dismiss_message = !this.dismiss_message;
     },
 
     dismiss_message_function() {
-        this.hide_message = false;
-        this.dismiss_message = false;
+        this.hide_message = !this.hide_message;
+        this.dismiss_message = !this.dismiss_message;
     }
     ,
   },
 
   mounted() {
     this.$root.$on(`toast_notify`, this.handle_delete);
-
   },
 
   data() {
